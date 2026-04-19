@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@layer base {
+  * {
+    @apply border-dark-border;
+  }
+
+  body {
+    @apply bg-dark-bg text-gray-100 font-sans antialiased;
+    scrollbar-width: thin;
+    scrollbar-color: #2a2d3a #0f1117;
+  }
+
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  body::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  a {
+    @apply transition-colors duration-150;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-dark-card rounded-xl border border-dark-border;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/5;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand/50;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand hover:bg-brand-dark text-white px-4 py-2 text-sm;
+  }
+
+  .btn-secondary {
+    @apply btn bg-dark-hover hover:bg-dark-border text-gray-300 hover:text-white px-4 py-2 text-sm border border-dark-border;
+  }
+
+  .btn-ghost {
+    @apply btn text-gray-400 hover:text-white hover:bg-dark-hover px-3 py-2 text-sm;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-600/30 px-4 py-2 text-sm;
+  }
+
+  .input {
+    @apply w-full bg-dark-hover border border-dark-border rounded-lg px-3 py-2 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand/50 transition-colors;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-300 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium;
+  }
+
+  .badge-genre {
+    @apply badge bg-brand/15 text-brand-light border border-brand/20;
+  }
+
+  .badge-tag {
+    @apply badge bg-dark-hover text-gray-400 border border-dark-border;
+  }
+
+  .star-full {
+    @apply text-accent-gold fill-accent-gold;
+  }
+
+  .star-empty {
+    @apply text-gray-600;
+  }
+
+  .star-half {
+    @apply text-accent-gold;
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-white mb-4;
+  }
+
+  .game-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  .prose-dark {
+    @apply text-gray-300 leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand to-purple-400 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-dark-card/80 border border-dark-border;
+  }
+}
+
+/* Star rating hover effect */
+.star-group:hover .star-item,
+.star-group .star-item:hover ~ .star-item {
+  color: transparent;
+}
+
+.star-group .star-item:hover,
+.star-group .star-item:hover ~ .star-item {
+  color: #f5c518;
+  fill: #f5c518;
+}
