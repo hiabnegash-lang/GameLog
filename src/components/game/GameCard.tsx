@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Game } from "@/types";
+import { GameCoverImage } from "./GameCoverImage";
 
 interface GameCardProps {
   game: Game;
@@ -15,7 +16,7 @@ export function GameCard({ game, showRating = true, className }: GameCardProps) 
     <Link href={`/games/${game.slug}`} className={cn("group block", className)}>
       <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-dark-card border border-dark-border group-hover:border-brand/40 transition-all duration-200 group-hover:shadow-lg group-hover:shadow-brand/10 group-hover:scale-[1.02]">
         {game.coverUrl ? (
-          <Image
+          <GameCoverImage
             src={game.coverUrl}
             alt={game.title}
             fill
@@ -56,7 +57,7 @@ export function GameCardLarge({ game }: { game: Game }) {
     <Link href={`/games/${game.slug}`} className="group flex gap-4 card-hover p-4">
       <div className="relative w-16 h-20 flex-shrink-0 rounded-md overflow-hidden bg-dark-hover">
         {game.coverUrl ? (
-          <Image src={game.coverUrl} alt={game.title} fill className="object-cover" />
+          <GameCoverImage src={game.coverUrl} alt={game.title} fill className="object-cover" />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-2xl">🎮</div>
         )}
